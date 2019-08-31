@@ -1,0 +1,38 @@
+{
+  "name": "record-capture",
+  "description": "A Vue.js web extension",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "icons": {
+    "48": "icons/icon_48.png",
+    "128": "icons/icon_128.png"
+  },
+  "browser_action": {
+    "default_title": "record-capture",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "permissions": [
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "match url"
+      ],
+      "js": [
+        "inject.js",
+        "contentScript.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "web_accessible_resources": [
+    "injected.js",
+    "jquery-3.4.1.min.js"
+  ]
+}
